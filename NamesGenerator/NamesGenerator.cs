@@ -1,11 +1,11 @@
 ﻿using System.Globalization;
 
 namespace System.Text {
-    /// <summary>
-    /// Random Name Generator inspired by Docker NamesGenerator (https://github.com/docker/docker/blob/master/pkg/namesgenerator/names-generator.go)
-    /// </summary>
-    public class NamesGenerator : INamesGenerator {
-        private readonly string[] left = new string[] {
+  /// <summary>
+  /// Random Name Generator inspired by Docker NamesGenerator (https://github.com/docker/docker/blob/master/pkg/namesgenerator/names-generator.go)
+  /// </summary>
+  public class NamesGenerator : INamesGenerator {
+    private readonly string[] left = new string[] {
             "admiring",
             "adoring",
             "affectionate",
@@ -13,12 +13,10 @@ namespace System.Text {
             "amazing",
             "angry",
             "awesome",
-            "backstabbing",
             "berserk",
             "big",
             "boring",
             "clever",
-            "cocky",
             "compassionate",
             "condescending",
             "cranky",
@@ -26,7 +24,6 @@ namespace System.Text {
             "determined",
             "distracted",
             "dreamy",
-            "drunk",
             "eager",
             "ecstatic",
             "elastic",
@@ -72,15 +69,14 @@ namespace System.Text {
             "stupefied",
             "suspicious",
             "tender",
-            "thirsty",
             "tiny",
             "trusting",
             "zen",
         };
 
-        // Docker, starting from 0.7.x, generates names from notable scientists and hackers.
-        // Please, for any amazing man that you add to the list, consider adding an equally amazing woman to it, and vice versa.
-        private readonly string[] right = new string[] {
+    // Docker, starting from 0.7.x, generates names from notable scientists and hackers.
+    // Please, for any amazing man that you add to the list, consider adding an equally amazing woman to it, and vice versa.
+    private readonly string[] right = new string[] {
             // Muhammad ibn Jābir al-Ḥarrānī al-Battānī was a founding father of astronomy. https://en.wikipedia.org/wiki/Mu%E1%B8%A5ammad_ibn_J%C4%81bir_al-%E1%B8%A4arr%C4%81n%C4%AB_al-Batt%C4%81n%C4%AB
 		    "albattani",
 
@@ -120,9 +116,6 @@ namespace System.Text {
 		    // Laura Bassi, the world's first female professor https://en.wikipedia.org/wiki/Laura_Bassi
 		    "bassi",
 
-		    // Hugh Beaver, British engineer, founder of the Guinness Book of World Records https://en.wikipedia.org/wiki/Hugh_Beaver
-		    "beaver",
-
 		    // Alexander Graham Bell - an eminent Scottish-born scientist, inventor, engineer and innovator who is credited with inventing the first practical telephone - https://en.wikipedia.org/wiki/Alexander_Graham_Bell
 		    "bell",
 
@@ -155,9 +148,6 @@ namespace System.Text {
 
 		    // Walter Houser Brattain co-invented the transistor - https://en.wikipedia.org/wiki/Walter_Houser_Brattain
 		    "brattain",
-
-		    // Emmett Brown invented time travel. https://en.wikipedia.org/wiki/Emmett_Brown (thanks Brian Goff)
-		    "brown",
 
 		    // Rachel Carson - American marine biologist and conservationist, her book Silent Spring and other writings are credited with advancing the global environmental movement. https://en.wikipedia.org/wiki/Rachel_Carson
 		    "carson",
@@ -540,33 +530,33 @@ namespace System.Text {
             "yonath",
         };
 
-        private Random rnd = new Random(Guid.NewGuid().GetHashCode());
+    private Random rnd = new Random(Guid.NewGuid().GetHashCode());
 
-        /// <summary>
-        /// GetRandomName generates a random name from the list of adjectives and surnames in this package formatted as "adjective_surname". For example 'focused_turing'.
-        /// </summary>
-        /// <returns>Random name string</returns>
-        public string GetRandomName() {
-            return this.GetRandomName(default(bool));
-        }
-
-        /// <summary>
-        /// GetRandomName generates a random name from the list of adjectives and surnames in this package formatted as "adjective_surname". For example 'focused_turing'.
-        /// </summary>
-        /// <remarks>
-        /// If retry is non-zero, a random integer between 0 and 10 will be added to the end of the name, e.g `focused_turing3`
-        /// </remarks>
-        /// <param name="retry">Append random numbers to generated name.</param>
-        /// <returns>Random name string</returns>
-        public string GetRandomName(bool retry) {
-            CultureInfo culture = CultureInfo.InvariantCulture;
-            string name = String.Format(culture, "{0}_{1}",
-                this.left[this.rnd.Next(left.Length)],
-                this.right[this.rnd.Next(right.Length)]);
-            if (retry) {
-                name = String.Format(culture, "{0}{1}", name, rnd.Next(10));
-            }
-            return name;
-        }
+    /// <summary>
+    /// GetRandomName generates a random name from the list of adjectives and surnames in this package formatted as "adjective_surname". For example 'focused_turing'.
+    /// </summary>
+    /// <returns>Random name string</returns>
+    public string GetRandomName() {
+      return this.GetRandomName(default(bool));
     }
+
+    /// <summary>
+    /// GetRandomName generates a random name from the list of adjectives and surnames in this package formatted as "adjective_surname". For example 'focused_turing'.
+    /// </summary>
+    /// <remarks>
+    /// If retry is non-zero, a random integer between 0 and 10 will be added to the end of the name, e.g `focused_turing3`
+    /// </remarks>
+    /// <param name="retry">Append random numbers to generated name.</param>
+    /// <returns>Random name string</returns>
+    public string GetRandomName(bool retry) {
+      CultureInfo culture = CultureInfo.InvariantCulture;
+      string name = String.Format(culture, "{0}_{1}",
+          this.left[this.rnd.Next(left.Length)],
+          this.right[this.rnd.Next(right.Length)]);
+      if (retry) {
+        name = String.Format(culture, "{0}{1}", name, rnd.Next(10));
+      }
+      return name;
+    }
+  }
 }

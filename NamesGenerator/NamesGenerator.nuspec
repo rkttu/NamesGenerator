@@ -2,14 +2,14 @@
 <package>
   <metadata>
     <id>$id$</id>
-    <version>$version$</version>
-    <title>$title$</title>
+    <version>1.0.1</version>
+    <title>$title$ - Overwolf fork</title>
     <authors>$author$</authors>
     <owners>$author$</owners>
     <licenseUrl>http://github.com/rkttu/NamesGenerator</licenseUrl>
-    <projectUrl>http://github.com/rkttu/NamesGenerator</projectUrl>
+    <projectUrl>https://github.com/overwolf/NamesGenerator</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>$description$</description>
+    <description>This is an overwolf fork for the NameGenerator repository created by rkttu</description>
     <releaseNotes></releaseNotes>
     <copyright>Copyright 2016 (c) ClouDeveloper, All rights reserved.</copyright>
     <tags>Names Generator, Docker</tags>
